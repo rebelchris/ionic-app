@@ -1,3 +1,25 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" contentId="content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title class="menu-title">Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item routerLink="/tabs/tab1" routerDirection="forward">
+            <ion-label>Tab 1</ion-label>
+          </ion-item>
+          <ion-item routerLink="/tabs/tab2" routerDirection="forward">
+            <ion-label>Tab 2</ion-label>
+          </ion-item>
+          <ion-item routerLink="/tabs/tab3" routerDirection="forward">
+            <ion-label>Tab 3</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="content"></ion-router-outlet>
 </ion-app>
