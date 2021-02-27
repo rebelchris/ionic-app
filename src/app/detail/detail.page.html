@@ -10,5 +10,17 @@
 </ion-header>
 
 <ion-content fullscreen class="ion-padding">
+  <ion-item>
+    <ion-icon name="remove-circle" (click)="sub()" item-right></ion-icon>
+    <ion-input
+      type="number"
+      min="1"
+      class="ion-text-center"
+      [value]="number"
+      [(ngModel)]="number"
+    ></ion-input>
+    <ion-icon name="add-circle" (click)="plus()" item-right></ion-icon>
+  </ion-item>
+
   <ion-button (click)="dismiss()" expand="block">Dismiss Modal</ion-button>
 </ion-content>

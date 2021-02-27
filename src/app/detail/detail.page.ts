@@ -7,11 +7,23 @@ import { ModalController } from "@ionic/angular";
   styleUrls: ["./detail.page.scss"],
 })
 export class DetailPage implements OnInit {
+  number: number;
+
   constructor(public modalController: ModalController) {}
 
   ngOnInit() {}
 
+  plus() {
+    this.number++;
+  }
+
+  sub() {
+    this.number--;
+  }
+
   dismiss() {
-    this.modalController.dismiss();
+    this.modalController.dismiss({
+      number: this.number,
+    });
   }
 }

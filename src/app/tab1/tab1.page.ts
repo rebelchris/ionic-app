@@ -8,11 +8,19 @@ import { ModalController } from "@ionic/angular";
   styleUrls: ["tab1.page.scss"],
 })
 export class Tab1Page {
+  number: number = 3;
   constructor(public modalController: ModalController) {}
 
   async presentModal() {
     const modal = await this.modalController.create({
       component: DetailPage,
+      componentProps: {
+        number: this.number,
+      },
+    });
+
+    modal.onDidDismiss().then((data) => {
+      this.number = data.data.number;
     });
 
     return await modal.present();
