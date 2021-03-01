@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title> Tab 1 </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,5 +11,10 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div class="ion-padding">
+    <ion-button expand="block" (click)="topToast()">Top toast</ion-button>
+    <ion-button expand="block" (click)="middleToast()">Middle toast</ion-button>
+    <ion-button expand="block" (click)="bottomToast()">Bottom toast</ion-button>
+    <ion-button expand="block" (click)="buttonToast()">Button toast</ion-button>
+  </div>
 </ion-content>
