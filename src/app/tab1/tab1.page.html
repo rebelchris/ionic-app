@@ -1,17 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title> Tab 1 </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="type">
+      <ion-segment-button value="all">
+        <ion-label>All</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="mentions">
+        <ion-label>Mentions</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ng-container [ngSwitch]="type">
+    <ion-list *ngSwitchCase="'all'">
+      <ion-item>Nathan liked your message</ion-item>
+      <ion-item>Hashnode retweeted yuor article</ion-item>
+      <ion-item>Marcus liked a message you're mentioned in</ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'mentions'">
+      <ion-item>Paul mentioned you in this article</ion-item>
+      <ion-item>Adrian mentioned you in a comment</ion-item>
+    </ion-list>
+  </ng-container>
 </ion-content>
