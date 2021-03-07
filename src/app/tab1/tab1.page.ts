@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-tab1",
@@ -10,9 +10,19 @@ export class Tab1Page {
   contactForm = new FormGroup({
     firstName: new FormControl("", Validators.required),
     lastName: new FormControl("", Validators.required),
+    options: new FormArray([]),
   });
+  dessertOptions: string[] = ["Ice-cream", "Cake", "Fruit"];
 
-  constructor() {}
+  get ordersFormArray() {
+    return this.contactForm.controls.options as FormArray;
+  }
+
+  constructor() {
+    this.dessertOptions.forEach(() =>
+      this.ordersFormArray.push(new FormControl(false))
+    );
+  }
 
   submitForm() {
     console.log(this.contactForm.value);

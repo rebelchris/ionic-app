@@ -13,11 +13,14 @@
       <ion-label>Lastname</ion-label>
       <ion-input formControlName="lastName"></ion-input>
     </ion-item>
+    <ng-container formArrayName="options">
+      <ion-item *ngFor="let dessert of dessertOptions; let i = index">
+        <ion-label>{{ dessert }}</ion-label>
+        <ion-checkbox slot="start" [formControlName]="i"></ion-checkbox>
+      </ion-item>
+    </ng-container>
     <ion-item>
-      <ion-label>
-        {{ contactForm.value | json }}<br />
-        {{ contactForm.status }}</ion-label
-      >
+      <ion-label> {{ contactForm.value.options | json }}<br /> </ion-label>
     </ion-item>
     <ion-row>
       <ion-col>
