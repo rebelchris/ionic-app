@@ -8,7 +8,9 @@
   <ion-list *ngIf="data.length">
     <ion-list-header> Famous people </ion-list-header>
     <ion-item *ngFor="let item of data">
-      <ion-thumbnail></ion-thumbnail>
+      <ion-thumbnail slot="start">
+        <img [src]="item.thumbnail" />
+      </ion-thumbnail>
       <ion-label>
         <h3>{{item.title}}</h3>
         <p>{{item.description}}</p>
